@@ -1,0 +1,69 @@
+%        File: giddenStuCon.tex
+%     Created: Thu Apr 12  9:00 AM 2011 C
+% Last Change: Thu Apr 12 10:00 AM 2011 C
+%    Based on: prelimPres.tex by Katy Huff
+%\documentclass[11pt,handout]{beamer}
+\documentclass[9pt]{beamer}
+\usetheme[white]{Wisconsin}
+%\title[short title]{long title}
+\title[NESD and Funding]{The NESD and Federal Funding for Nuclear Energy}
+%\subtitle[short subtitle]{long subtitle}
+\subtitle[Students]{How Students get Funded}
+%\author[short name]{long name}
+\author[M. Gidden]{Matthew J. Gidden}
+%\date[short date]{long date}
+\date[4.17.2012]{April 17, 2012}
+%\institution[short name]{long name}
+\institute[UW-Madison]{University of Wisconsin-Madison}
+% Page numbers.
+\setbeamertemplate{footline}[page number]
+% Those icons  in the references are terrible looking.
+\setbeamertemplate{bibliography item}[text]
+
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% From uw-beamer Here's a handy bit of code to place at 
+%% the beginning of your presentation (after \begin{document}):
+\newcommand*{\alphabet}{ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz}
+\newlength{\highlightheight}
+\newlength{\highlightdepth}
+\newlength{\highlightmargin}
+\setlength{\highlightmargin}{2pt}
+\settoheight{\highlightheight}{\alphabet}
+\settodepth{\highlightdepth}{\alphabet}
+\addtolength{\highlightheight}{\highlightmargin}
+\addtolength{\highlightdepth}{\highlightmargin}
+\addtolength{\highlightheight}{\highlightdepth}
+\newcommand*{\Highlight}{\rlap{\textcolor{HighlightBackground}{\rule[-\highlightdepth]{\linewidth}{\highlightheight}}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%||||---------------
+\frame{
+\titlepage
+}
+%---------------||||
+
+
+%||||---------------
+\frame{
+\frametitle{Outline}
+\tableofcontents[]
+}
+
+%---------------||||
+\section{Introduction}
+\include{intro}
+
+%||||---------------
+\begin{frame}%[allowframebreaks]
+  \frametitle{References}
+  \bibliographystyle{plain}
+  \bibliography{main}
+\end{frame}
+%---------------||||
+
+
+
+
+\end{document}
