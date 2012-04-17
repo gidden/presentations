@@ -1,0 +1,47 @@
+\begin{frame}[ctb!]
+  \frametitle{Benchmarks : Overview}
+  This suite of benchmark problems is designed to test Cyclus' build
+  directive and gross material flows.
+  
+  \vspace {0.2cm}
+
+  VISION is not a discrete material code, thus approximations must be made.
+  As per Kyle Oliver's masters thesis, the following parameters are used:
+  \input{parameters_tab}
+  
+  \vspace {0.2cm}
+
+  Note that using these parameters, a full core loading is 1.273 tHM.
+\end{frame}
+
+\begin{frame}[ctb!]
+  \frametitle{Benchmarks : Specifics}
+  Each simulation begins in the year 2000 and is run for 100 years. The decay 
+  module in Cyclus has been turned off in order to compare results with given
+  data.
+  \begin{itemize}
+    \item Problem 1 - 1 Reactor
+      \begin{itemize}
+        \item A single reactor is ordered in 2000, decommissioning at the end
+          of its lifetime
+      \end{itemize}
+    \item Problem 2 - 10 Reactors
+      \begin{itemize}
+        \item 10 such reactors are ordered
+      \end{itemize}
+    \item Problem 3 - Linear Growth
+      \begin{itemize}
+        \item 1 reactor per year is built
+        \item Note: 2 reactors are built in years that old reactors retire
+      \end{itemize}
+    %% \item Problem 4 - Exponential Growth
+    %%   \begin{itemize}
+    %%     \item Reactors are built in order to meet an increased electrical demand
+    %%       of 2\% per year
+    %%     \item Initial demand is 10 GWe
+    %%     \item Initially, 10 legacy reactors exist
+    %%     \item One legacy reactor per year is decommissioned starting in 2029
+    %%   \end{itemize}
+  \end{itemize}
+\end{frame}
+

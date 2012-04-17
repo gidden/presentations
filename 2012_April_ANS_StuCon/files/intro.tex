@@ -1,0 +1,66 @@
+% Overview : .tex
+% put a repository model into cyclus
+% that is capable of distinguishing between disposal choices
+% and fuel cycle choices
+% but is still speedy. 
+
+\begin{frame}[ctb!]
+  \frametitle{Introduction : Purpose}
+  Fuel cycle simulators are designed to answer policy-related questions
+  regarding transitions from one equilibrium state to another.
+
+  \vspace{0.2cm}
+
+  \pause
+  A simulator answers the following questions as a function of its 
+  parameter space:
+  \begin{itemize}
+    \item how much material exists
+    \item where does that material reside
+    \item from/to where and when is material transported
+    \item what kinds of facilities are needed
+    \item when is each type of facility needed
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[ctb!]
+  \frametitle{Introduction : Simulators Today}
+  In general, simulators differ in the following respects
+  \begin{itemize}
+    \item material flows: continuous or discrete
+    \item facility deployment: individual or fleet-based
+    \item regional modeling
+  \end{itemize}
+  \pause
+  Some codes currently in use today:
+  \begin{itemize}
+    \item VISION (INL)
+    \item NUWASTE (NWTRB)
+    \item CAFCA (MIT)
+    \item DANESS (ANL)
+    \item NFCSim (LANL)
+    \item COSI (CEA)
+    \item MARKAL (BNL)
+  \end{itemize}
+  ... to name a few.
+\end{frame}
+
+\begin{frame}[ctb!]
+  \frametitle{Introduction : VISION}
+  VISION has surfaced as the industry standard simulator. It is well
+  represented in the literature and can model most aspects of the
+  fuel cycle. \cite{yacout_vision_2006}
+  \begin{itemize}
+    \item continuous material flows
+    \item fleet-based facility deployment
+    \item some regional modeling capability
+    \item input/output via Excel
+    \item simulation engine via Powersim
+  \end{itemize}
+  However, Powersim has its limitations...
+  \begin{itemize}
+    \item variables as a function of software level... did you get the academic or professional version?
+    \item it's (relatively) expensive
+    \item it's third party software
+  \end{itemize}
+\end{frame}
