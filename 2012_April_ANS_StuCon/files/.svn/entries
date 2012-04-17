@@ -1,294 +1,0 @@
-10
-
-dir
-0
-svn+ssh://gidden@best-tux.cae.wisc.edu/filespace/people/g/gidden/svnrepos/presentationrepo/2012_April_ANS_StuCon/files
-svn+ssh://gidden@best-tux.cae.wisc.edu/filespace/people/g/gidden/svnrepos/presentationrepo
-add
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-58e4bf9a-0301-47d9-92df-dded334e7b32
-
-development.tex
-file
-
-
-
-add
-
-giddenStuCon.aux
-file
-
-
-
-add
-
-giddenStuCon.tex
-file
-
-
-
-add
-
-intro.aux
-file
-
-
-
-add
-
-beamercolorthemeWisconsin.sty
-file
-
-
-
-add
-
-intro.tex
-file
-
-
-
-add
-
-giddenStuCon.out
-file
-
-
-
-add
-
-giddenStuCon.pdf
-file
-
-
-
-add
-
-.log
-file
-
-
-
-add
-
-cyclus.tex
-file
-
-
-
-add
-
-giddenStuCon.ps
-file
-
-
-
-add
-
-giddenStuCon.dvi
-file
-
-
-
-add
-
-
-
-
-
-has-props
-has-prop-mods
-
-community.eps
-file
-
-
-
-add
-
-UW_crest.ps
-file
-
-
-
-add
-
-UW_main.ps
-file
-
-
-
-add
-
-giddenStuCon.snm
-file
-
-
-
-add
-
-systools_tab.tex
-file
-
-
-
-add
-
-makelatex.sh
-file
-
-
-
-add
-
-
-
-
-
-has-props
-has-prop-mods
-
-.pdf
-file
-
-
-
-add
-
-
-
-
-
-has-props
-has-prop-mods
-
-beamercolorthemeWisconsinWhite.sty
-file
-
-
-
-add
-
-beamerthemeWisconsin.sty
-file
-
-
-
-add
-
-facility.eps
-file
-
-
-
-add
-
-wf_tab.tex
-file
-
-
-
-add
-
-pichere.png
-file
-
-
-
-add
-
-
-
-
-
-has-props
-has-prop-mods
-
-pichere.eps
-file
-
-
-
-add
-
-giddenStuCon.log
-file
-
-
-
-add
-
-stucon.bib
-file
-
-
-
-add
-
-wpfail_tab.tex
-file
-
-
-
-add
-
-giddenStuCon.nav
-file
-
-
-
-add
-
-interfaces.eps
-file
-
-
-
-add
-
-NEUP_Final_Logo_Version-09.jpg
-file
-
-
-
-add
-
-
-
-
-
-has-props
-has-prop-mods
-
-giddenStuCon.toc
-file
-
-
-
-add
-
-development.aux
-file
-
-
-
-add
-
