@@ -70,14 +70,26 @@ of those variables. Variables currently come in two flavors: integer and linear,
 work will be performed to add cutting plane support as well as a suite of unit tests.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Once-Through Fuel Cycle Benchmarks}
-blah
-\subsection{Scenarios}
-blah
+In order to model a once-through fuel cycle, a subset of real-world facility interactions were chosen to be analyzed. Among the chosen facilities are:
+mines, enrichment facilities, reactors, and storage facilities. In order to drive the simulation, an electricity demand function is provided to the 
+simulation which determines the supply requirement for reactors at a given time step. Once the simulation is complete, an analysis of material
+flows and facility deployment as a function of time is provided. Of specific concern with respect to the once-through fuel cycle is long term used
+supply and the corresponding storage requirements.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Scenario Construction}
+A number of modules have been developed to perform this analysis. Reactor deployment decisions are driven by the GrowthRegion class. An electricity demand is
+defined for that region, either as a linear or exponential function. The region is also provided with a set of facilities (reactors) that can meet
+this demand. At any timestep in which there exists a demand gap, i.e. there exists more demand than supply, a build decision is made. This decision is modeled
+as the following integer program:
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Results \& Analysis}
 blah
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Acknowlegements}
 This research is being performed using funding received from the DOE Office of Nuclear Energy's Nuclear Energy University Programs. 
 The author thanks the NEUP for its generous support.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliography{bibliography}
 \end{document}
 
