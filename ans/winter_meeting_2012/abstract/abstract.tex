@@ -1,19 +1,100 @@
-What Cyclus is, who we are
+% Thanks to Seth Johnson (sethrj@umich.edu) for publishing his ans template
 
-Cyclus Design Philosophy
--RIF
--Markets
--Optimization
+\documentclass{anstrans}
+\bibliographystyle{ans}
 
-Once Through Set-Up
--modules used
--describe integer program(s)
--general decision making
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Once-Through Bechmarks with CYCLUS, a Modular, Open-Source Fuel Cycle Simulator}
+\author{Matthew J.~Gidden, Paul P.H.~Wilson, Kathryn D.~Huff, Robert W.~Carlsen}
 
-Scenarios Analyzed
+%% uncomment these next five only if using anstrans
+\institute{Department of Nuclear Engineering \& Engineering Physics, University of Wisconsin - Madison, Madison, WI, 53703}
+\email{gidden@wisc.edu}
+\usepackage{graphicx}
+\usepackage{microtype} % if using PDF
+\newcommand{\units}[1] {\:\text{#1}}%
+\newcommand{\SN}{S$_N$}%{S$_\text{N}$}%{$S_N$}%
 
-Conclusion
+\date{2012/06/29}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
 
----------
-mixins - builder, producer, consumer
- -- defines interface for that type of scenario interaction
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+The Cyclus project at the University of Wisconsin - Madison is the result of previous lessons learned and is designed to be a 
+modular application, allowing for a variety of collaborators and a potentially diverse user-base. Cyclus is written in C++ and
+is composed of a core library which is linked to a selection of module and utility libraries. In its current form, Cyclus uses
+XML-based pre-processing and a SQL-based output database. The Cyclus team has recently grown and now incorporates a variety of 
+expertise: output visualization capability through collaboration with the University of Utah, server-client communication via the 
+University of Idaho, input visualization and control with the University of Texas - Austin, and social communication expertise 
+through collaborators at UW-Madison to assist the mission-critical goal of relevancy vis-\`{a}-vis policy makers. Accordingly, the 
+Cyclus project is expanding efforts in the realms of both structural capability and benchmarking calculations.
+
+A series of once-through fuel cycle scenarios have been conducted using the Cyclus core and accompanying modules. Where needed,
+additional modules have been added to the basick pack of Cyclus module, including a reactor module that operates in a batch 
+mode and an region model that intelligently makes building decisions given a demand function. The results of these scenarios
+are then compared with current industry standard simulators, such as VISION \cite{vision2009}, to provide a benchmark of the
+Cyclus results.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Cyclus Design and Development}
+The paradigm under which Cyclus has been developed and is distributed is unique and offers a number of advantages regarding its 
+potential wide-spread adoption by a diverse user base. Cyclus is an open source collection of libraries that
+allow for both out-of-the-box capability and a platform on which to develop additional modules. At present, the Cyclus suite 
+includes a core library, a basic module pack and utilities library, and an optimization library. Each can be linked to an 
+application to be used in concert.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Open Development}
+As one of the leading principles guiding the development of Cyclus, an open-source repository provides a high degree of flexibility 
+and a large amount of exposure to potential collaborators and developers. The Cyclus repository is publicly available via 
+GitHub \cite{cyclus2012}. A number of tools are available to Cyclus developers in order to maintain software development best-practices, 
+including distributed version control, automatic documentation, and in-depth issue management. Additionally, Cyclus developers have taken 
+advantage of existing, external open-source libraries in order to conform to current standards, including an expansion of the C++ standard
+library and fully benchmarked linear and integer programming solvers. Perhaps the most important attribute of the open development paradigm 
+is that it allows for unfettered access to the Cyclus core and basic module source code. Combined with modular software development, Cyclus 
+is an easily transferable framework on which to build a strong fuel cycle simulation community.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Dynamic Module Capability}
+Incorporation of dynamically loadable, independently construced modules is another key design concept in Cyclus. The core simulation engine 
+comprising Cyclus is physically separate from the various modules determining the specific behavior that occurs in each simulation. 
+Interaction between the core and modules occurs via dynamic linking, allowing for encapsulated development and providing developers the ability 
+to focus on specific modules without involving the simulation engine. This increases efficiency and decreases the overall programming experience 
+required. In the present study, indepenent modules were developed, such as the batch reactor and intelligent building region modules discussed 
+above. This separation not only allows for multiple developers to work towards a common goal, e.g. fully describing a target scenario, but
+also assists in separating simulation concerns into reasonably sized, independently testable modules.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Optimization}
+The Cyclus project has recently added a linear, integer, and mixed integer program wrapper named Cyclopts \cite{cyclopts2012} to its tool set. Cyclopts relies on the
+open-source solver Coin-or Branch and Cut \cite{coinCBC}, providing a simple interface to describe such optimization problems. At the present time,
+developers have the ability to define a set of variables and to describe an objective function and series of constraints that utilize some subset
+of those variables. Variables currently come in two flavors: integer and linear, corresponding to their respective solution techniques. Additional
+work will be performed to add cutting plane support as well as a suite of unit tests.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Once-Through Fuel Cycle Benchmarks}
+blah
+\subsection{Scenarios}
+blah
+\subsection{Results \& Analysis}
+blah
+
+\bibliography{bibliography}
+\end{document}
+
+% What Cyclus is, who we are
+
+% Cyclus Design Philosophy
+% -RIF
+% -Markets
+% -Optimization
+
+% Once Through Set-Up
+% -modules used
+% -describe integer program(s)
+% -general decision making
+
+% Scenarios Analyzed
+
+% Conclusion
+
+% ---------
+% mixins - builder, producer, consumer
+%  -- defines interface for that type of scenario interaction
