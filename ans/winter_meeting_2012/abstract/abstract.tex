@@ -10,6 +10,8 @@
 %% uncomment these next five only if using anstrans
 \institute{Department of Nuclear Engineering \& Engineering Physics, University of Wisconsin - Madison, Madison, WI, 53703}
 \email{gidden@wisc.edu}
+
+\usepackage{times}
 \usepackage{graphicx}
 \usepackage{microtype} % if using PDF
 \newcommand{\units}[1] {\:\text{#1}}%
@@ -81,7 +83,32 @@ A number of modules have been developed to perform this analysis. Reactor deploy
 defined for that region, either as a linear or exponential function. The region is also provided with a set of facilities (reactors) that can meet
 this demand. At any timestep in which there exists a demand gap, i.e. there exists more demand than supply, a build decision is made. This decision is modeled
 as the following integer program:
- 
+\begin{subequations} \label{eqs:optBuild}
+\begin{equation} \label{eq:optBuildObj}
+  \min \sum_{i=1}^{N}n_i*c_i
+\end{equation}
+\begin{equation} \label{eq:optBuildConst}
+  s.t. \, \sum_{i=1}^{N}n_i*\phi_i \ge \Phi
+\end{equation}
+\begin{equation} \label{eq:optBuildBounds}
+  n_i \in [0,\infty) \, \forall \, i \in I, \: n_i \: integer
+\end{equation}
+where $\Phi$ is the demand to be met, $I$ is the set of facilities meeting the demand, and, for each facility, $c_i$ is the cost, and $\phi_i$ is the capacity. 
+Finally, $n_i$ is the optimized number of facilities to build.
+\end{subequations}
+
+While electricity demand directly corresponds to reactor deployment, supporting facilities, e.g. enrichment facilities, mines, and storage facilities, depend
+on overal all reactor fuel input and output requirements. There are multiple strategies that can be used to determine supporting facility deployment, of which
+a minimal constraint approach is first analyzed followed by a supply-demand constraint approach, i.e. when the demand for a resource (say, fresh fuel) reaches
+a percentage of the total supply, a facility meeting that demand is deployed.
+
+In order to benchmark simulation results, common scenarios have been defined that can be modeled by both Cyclus and VISION. Specifically, the following
+parameters are varied:
+\begin{itemize}
+\item number of reactor types (e.g. LWRs and HWRs)
+\item electricity demand rate
+\item storage availability date (i.e. when a repository is available)
+\end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Results \& Analysis}
 blah
