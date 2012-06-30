@@ -25,19 +25,21 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
-The \emph{Cyclus} project at the University of Wisconsin - Madison is
-the result of previous lessons learned and is designed to be a modular
-application, allowing for a variety of collaborators and a potentially
-diverse user-base. \emph{Cyclus} is written in C++ and is composed of
-a core library which is linked to a selection of module and utility
-libraries. In its current form, \emph{Cyclus} uses XML-based
-pre-processing and a SQL-based output database. The \emph{Cyclus} team
-has recently grown and now incorporates a variety of expertise: output
-visualization capability through collaboration with the University of
-Utah, server-client communication via the University of Idaho, input
-visualization and control with the University of Texas - Austin, and
-social communication expertise through collaborators at UW-Madison to
-assist the mission-critical goal of relevancy vis-\`{a}-vis policy
+The \emph{Cyclus} project, based at the University of Wisconsin -
+Madison, is an open source platform for exploring the long-term impact
+of alternative nuclear fuel cycles.  The \emph{Cyclus} core provides
+the infrastructure for an agent-based approach, allowing user-provided
+modules to define the behavior of fuel cycle facilities as they
+interact to exchange materials.  An important consequence of this
+approach is that innovative facility and material exchange concepts
+can be introduced to a consistent framework allowing for more rigorous
+comparison.  The \emph{Cyclus} team has recently grown and now
+incorporates a variety of expertise: output visualization capability
+through collaboration with the University of Utah, server-client
+communication via the University of Idaho, input visualization and
+control with the University of Texas - Austin, and social
+communication expertise through collaborators at UW-Madison to assist
+the mission-critical goal of relevancy vis-\`{a}-vis policy
 makers. Accordingly, the \emph{Cyclus} project is expanding efforts in
 the realms of both structural capability and benchmarking
 calculations.
@@ -45,16 +47,20 @@ calculations.
 A series of once-through fuel cycle scenarios have been conducted
 using the \emph{Cyclus} core and accompanying modules. Where needed,
 additional modules have been added to the basic pack of \emph{Cyclus}
-module, including a reactor module that operates in a batch mode and
+modules, including a reactor module that operates in a batch mode and
 an region model that intelligently makes building decisions given a
 demand function. The results of these scenarios are then compared with
-current industry standard simulators, such as VISION
-\cite{vision2009}, to provide a benchmark of the \emph{Cyclus}
+VISION \cite{vision2009} to provide a benchmark of the \emph{Cyclus}
 results.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{\emph{Cyclus} Design and Development}
+
+%% \emph{Cyclus} is written in C++ and is composed of a core library
+%% that is dynamically linked to a selection of module and utility
+%% libraries. In its current form, \emph{Cyclus} uses XML-based
+%% pre-processing and a SQL-based output database.
 
 The paradigm under which \emph{Cyclus} has been developed and is
 distributed is unique and offers a number of advantages regarding its
@@ -62,10 +68,12 @@ potential wide-spread adoption by a diverse user base. \emph{Cyclus}
 is an open source collection of libraries that allow for both
 out-of-the-box capability and a platform on which to develop
 additional modules. At present, the \emph{Cyclus} suite includes a
-core library, a basic module pack and utilities library, and an
-optimization library. Each can be linked to an application to be used
-in concert.
+core library, a module development toolkit, and a basic module pack.
+The module development toolkit includes a growing collection of
+standard and commonly used capabilities, such as optimization methods
+and resource buffers for storing inventories.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Open Development}
 As one of the leading principles guiding the development of
 \emph{Cyclus}, an open-source repository provides a high degree of
@@ -85,6 +93,7 @@ source code. Combined with modular software development, \emph{Cyclus}
 is an easily transferable framework on which to build a strong fuel
 cycle simulation community.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Dynamic Module Capability}
 Incorporation of dynamically loadable, independently constructed
 modules is another key design concept in \emph{Cyclus}. The core
@@ -115,24 +124,57 @@ linear, corresponding to their respective solution
 techniques. Additional work will be performed to add cutting plane
 support as well as a suite of unit tests.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Once-Through Fuel Cycle Benchmarks}
-In order to model a once-through fuel cycle, a subset of real-world
-facility interactions were chosen to be analyzed. Among the chosen
-facilities are: mines, enrichment facilities, reactors, and storage
-facilities. In order to drive the simulation, an electricity demand
-function is provided to the simulation which determines the supply
-requirement for reactors at a given time step. Once the simulation is
-complete, an analysis of material flows and facility deployment as a
-function of time is provided. Of specific concern with respect to the
-once-through fuel cycle is long term used supply and the corresponding
-storage requirements.
+\section{Verification and Testing}
+
+After a series of fundamental verification problems, a number of
+once-through scenarios were simulated.  VISION was used as the basis
+for comparison in all cases.
+
+\subsection{Single Reactor Verification Problems}
+To verify the functionality of the \emph{Cyclus} core, basic
+verification problems using a single reactor type were performed and
+compared to results from VISION.  A short table of the parameters
+varied in the functionality benchmark is described in
+Table~\ref{tab:scenarioparams}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table} [h]
+\centering
+\begin{tabular} {|c|c|} 
+\hline
+N.Reactors & Growth Type \\
+\hline
+1          & none        \\
+10         & none        \\
+1          & linear      \\
+1          & exponential \\
+\hline
+\end{tabular}
+  \caption{Functionality Benchmarking Parameters.}
+  \label{tab:scenarioparams}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Once-Through Fuel Cycle Benchmarks}
+
+In order to benchmark simulation results, common once-through
+scenarios have been defined that can be modeled by both \emph{Cyclus}
+and VISION.  For \emph{Cyclus}, a subset of real-world facility
+interactions were included: mines, enrichment facilities, reactors,
+and storage facilities. In order to drive the simulation, an
+electricity demand function is provided to the simulation which
+determines the supply requirement for reactors at a given time
+step. Once the simulation is complete, an analysis of material flows
+and facility deployment as a function of time is provided. Of specific
+concern with respect to the once-through fuel cycle is long term used
+fuel production and the corresponding storage requirements.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Scenario Construction}
+
+\subsubsection{Scenario Construction}
 A number of modules have been developed to perform this
 analysis. Reactor deployment decisions are driven by the GrowthRegion
 class. An electricity demand is defined for that region, either as a
 linear or exponential function. The region is also provided with a set
-of facilities (reactors) that can meet this demand. At any time step
+of available facilities (reactors) that can meet this demand. At any time step
 in which there exists a demand gap, i.e. there exists more demand than
 supply, a build decision is made. This decision is modeled as the
 following integer program:
@@ -153,67 +195,46 @@ facilities to build.
 \end{subequations}
 While electricity demand directly corresponds to reactor deployment,
 supporting facilities, e.g. enrichment facilities, mines, and storage
-facilities, depend on overall all reactor fuel input and output
+facilities, depend on overall reactor fuel input and output
 requirements. There are multiple strategies that can be used to
 determine supporting facility deployment, of which a minimal
 constraint approach is first analyzed followed by a supply-demand
 constraint approach, i.e. when the demand for a resource (say, fresh
 fuel) reaches a percentage of the total supply, a facility meeting
 that demand is deployed.
-\subsection{Benchmarking and Parameter Variation}
-In order to benchmark simulation results, common once-through
-scenarios have been defined that can be modeled by both \emph{Cyclus}
-and VISION. To gain an understanding of the underlying functionality
-of the two codes, simple scenarios will first be tested using a
-singular reactor type. A short table of the parameters varied in the
-functionality benchmark is described in
-Table~\ref{tab:scenarioparams}.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table} [h]
-\centering
-\begin{tabular} {|c|c|} 
-\hline
-N.Reactors & Growth Type \\
-\hline
-1          & none        \\
-10         & none        \\
-1          & linear      \\
-1          & exponential \\
-\hline
-\end{tabular}
-  \caption{Functionality Benchmarking Parameters.}
-  \label{tab:scenarioparams}
-\end{table}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-VISION uses an Excel Spreadsheet input paradigm which allows one to
-vary a number of parameters. ``Base Case Scenarios'' are also defined,
-among which is a once-through scenario.  Accordingly, this provided
-scenario is used and some of its corresponding parameters are varied
-in order to define a relative benchmark between \emph{Cyclus} and
-VISION. Specifically, the following parameters are varied:
+
+\subsubsection{Benchmarking and Parameter Variation}
+
+VISION uses an Excel spreadsheet input paradigm which allows one to
+develop new scenarios or vary the parameters of the provided ``Base
+Case Scenarios''. The once-through base case scenario is used and some
+of its corresponding parameters are varied in order to define a
+relative benchmark between \emph{Cyclus} and VISION. Specifically, the
+following parameters are varied:
 \begin{itemize}
 \item number of reactor types (e.g. LWRs and HWRs)
 \item electricity demand rate
 \item storage availability date (i.e. when a repository is available)
 \end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Results \& Conclusions}
-Cyclus has performed well in benchmarks of once-through fuel cycles
-with VISION, an industry standard. It has the capability to model a
-variety of growth scenarios with varying fuel storage
-strategies. Differences in functionality between the two codes were
-documented but not unexpected, for VISION treats material flows in a
-continuous manner whereas Cyclus treats material flows
-discretely. Additionally, the growth algorithm of VISION,
-i.e. explicitly declaring reactor types to be built given a defined
-distribution, can be directly matched through an additional constraint
-in the decision making problem solved by the GrowthRegion.
+Cyclus has performed well in the verification comparisons with VISION.
+%% WE should have some results here, like the ones in your UNLV presentation.
+
+\emph{Cyclus} has the capability to model a variety of growth
+scenarios with varying fuel storage strategies.  Additionally, the
+growth algorithm of VISION, i.e. explicitly declaring reactor types to
+be built given a defined distribution, can be directly matched through
+an additional constraint in the decision making problem solved by the
+GrowthRegion.
 
 Further work is currently underway to refine building strategies for
 non-reactor facilities; however, the next major project goal of the
 Cyclus team is to provide recycle capability. Once completed,
 additional benchmarks will be performed to analyze code behavior using
 recycle scenarios.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Acknowledgements}
 This research is being performed using funding received from the DOE
