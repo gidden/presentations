@@ -47,7 +47,7 @@ using the \textsc{Cyclus} core and accompanying modules. Where needed,
 additional modules have been added, including a reactor module that operates 
 in batch mode and a region model that intelligently makes building decisions 
 given a demand function. The results of these scenarios are then compared with
-VISION \cite{vision2009} to provide a benchmark of the \textsc{Cyclus}
+VISION~\cite{vision2009} to provide a benchmark of the \textsc{Cyclus}
 results.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -69,7 +69,7 @@ As one of the leading principles guiding the development of
 \textsc{Cyclus}, an open-source repository provides a high degree of
 flexibility and a large amount of exposure to potential collaborators
 and developers. The \textsc{Cyclus} repository is publicly available via
-GitHub \cite{cyclus2012}. A number of tools are available to
+GitHub~\cite{cyclus2012}. A number of tools are available to
 \textsc{Cyclus} developers in order to maintain software development
 best-practices, including distributed version control, automatic
 documentation, and in-depth issue management. Additionally,
@@ -104,13 +104,13 @@ testable modules.
 %%%%%%%%%%
 \subsection{Optimization}
 The \textsc{Cyclus} project has recently added a linear, integer, and
-mixed integer program wrapper named \textsc{Cyclopts} \cite{cyclopts2012} to
-its tool set. \textsc{Cyclopts} relies on the open-source solver Coin-or Branch
-and Cut \cite{coinCBC}, providing a simple interface to describe such
+mixed integer program wrapper named \textsc{Cyclopts}~\cite{cyclopts2012} to
+its tool set. \textsc{Cyclopts} relies on the open-source solver Coin-OR Branch
+and Cut~\cite{coinCBC}, providing a simple interface to describe such
 optimization problems. At the present time, developers have the
 ability to define a set of variables and to describe an objective
 function and series of constraints that utilize some subset of those
-variables. Variables currently come in two flavors: integer and
+variables. Variables currently come in two flavors, integer and
 linear, corresponding to their respective solution
 techniques. Additional work will be performed to add cutting plane
 support as well as a suite of unit tests.
@@ -122,7 +122,7 @@ support as well as a suite of unit tests.
 \subsection{Core Functionality Benchmarks}
 To verify the functionality of the \textsc{Cyclus} core, basic problems using a 
 single reactor type were performed and compared to results from both VISION and 
-GENIUS\cite{juchau2008}, another fuel cycle simulator and predecessor to 
+GENIUS~\cite{juchau2008}, another fuel cycle simulator and predecessor to 
 \textsc{Cyclus}. Table~\ref{tab:scenarioparams} describes the parameters varied 
 in the functionality benchmark.
 %%%
@@ -146,8 +146,8 @@ Problem No. & No.Reactors & Growth Type \\
 %%%%%%%%%%
 \subsection{Once-Through Fuel Cycle Benchmarks}
 Once-through simulation results were compared with similarly defined
-scenarios in VISION.  For \textsc{Cyclus}, a subset of real-world facility
-interactions were included: mines, enrichment facilities, reactors,
+scenarios in VISION.  For \textsc{Cyclus}, a subset of real-world facilities
+and their interactions were included: mines, enrichment facilities, reactors,
 and storage facilities. In order to drive the simulation, an
 electricity demand function is provided to the simulation which
 determines the supply requirement for reactors at a given time
@@ -203,8 +203,8 @@ facilities, depend on overall reactor fuel input and output
 requirements. There are multiple strategies that can be used to
 determine supporting facility deployment, of which a minimal
 constraint approach is first analyzed followed by a supply-demand
-constraint approach, i.e. when the demand for a resource (say, fresh
-fuel) reaches a percentage of the total supply, a facility meeting
+constraint approach, i.e. when the demand for a resource, e.g. fresh
+fuel, reaches a percentage of the total supply, a facility meeting
 that demand is deployed.
 
 %%%%%%%%%%
@@ -226,11 +226,11 @@ following parameters are varied:
 
 %%%%%%%%%%
 \subsubsection{Results}
-\textsc{Cyclus} has performed well in the verification comparisons with VISION.
-Early results of the core functionality benchmark problems, which report total mass 
+\textsc{Cyclus} has performed well in early verification comparisons with VISION.
+Results of the core functionality benchmark problems, which report total mass 
 ejected from reactors as a function of time, are shown below in Fig.~\ref{fig:p1} 
 and Fig.~\ref{fig:p2}; note that the benchmark values used for VISION and GENIUS have 
-been previously reported in Oliver2009\cite{oliver2009}.
+been previously reported in Oliver2009~\cite{oliver2009}.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.48\textwidth]{p1.ps}
@@ -247,7 +247,7 @@ been previously reported in Oliver2009\cite{oliver2009}.
 A fundamental and expected result from this work is the effect of continuous
 material flow simulators, such as VISION, versus the discrete nature of 
 GENIUS and \textsc{Cyclus}. This difference accounts for the small discrepancies
-during the final core offload(s)\cite{oliver2009}.
+during the final core offload(s)~\cite{oliver2009}.
 
 %%%%%%%%%%
 \subsubsection{Conclusions}
@@ -255,7 +255,7 @@ The \textsc{Cyclus} core has been shown to provide expected behavior of discrete
 material flows for simple reactor cases. \textsc{Cyclus} additionally has the 
 capability to not only model a variety of growth scenarios with varying fuel storage 
 strategies, but also to emulate the reactor deployment algorithm of VISION, i.e. 
-explicitly declaring reactor types to be built given a defined distribution by adding 
+explicitly declaring reactor types to be built given a defined distribution, by adding 
 an additional constraint in the decision making problem solved by the GrowthRegion.
 
 Further work is currently underway to refine building strategies for
