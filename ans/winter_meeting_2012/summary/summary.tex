@@ -44,8 +44,7 @@ calculations.
 
 A series of once-through fuel cycle scenarios are being conducted
 using the \textsc{Cyclus} core and accompanying modules. Where needed,
-additional modules have been added, including a reactor module that operates 
-in batch mode and a region model that intelligently makes building decisions 
+additional modules have been added, including a region model that intelligently makes building decisions 
 given a demand function. The results of these scenarios are then compared with
 VISION~\cite{vision2009} to provide a benchmark of the \textsc{Cyclus}
 results.
@@ -86,16 +85,15 @@ cycle simulation community.
 %%%%%%%%%%
 \subsection{Dynamic Module Capability}
 Incorporation of dynamically loadable, independently constructed
-modules is another key design concept in \textsc{Cyclus}. The core
-simulation engine comprising \textsc{Cyclus} is physically separate from
+modules is another key design concept in \textsc{Cyclus}. Whereas the
+connections between staticly loaded libraries is determined at compile time,
+dynamically loaded libraries are linked at run time. This allows for the core
+simulation engine comprising \textsc{Cyclus} to be physically separate from
 the various modules determining the specific behavior that occurs in
-each simulation.  Interaction between the core and modules occurs via
-dynamic linking, allowing for encapsulated development and providing
-developers the ability to focus on specific modules without involving
-the simulation engine. This increases efficiency and decreases the
-overall programming experience required. In the present study,
-independent modules were developed, such as the batch reactor and
-intelligent building region modules discussed above. This separation
+each simulation.  Because interaction between the core and modules occurs via
+dynamic linking, module development is encapsulated and can be performed without involving
+the simulation engine, increasing efficiency and decreasing the
+overall programming experience required. This separation
 not only allows for multiple developers to work towards a common goal,
 e.g. fully describing a target scenario, but also assists in
 separating simulation concerns into reasonably sized, independently
@@ -149,7 +147,7 @@ Once-through simulation results were compared with similarly defined
 scenarios in VISION.  For \textsc{Cyclus}, a subset of real-world facilities
 and their interactions were included: mines, enrichment facilities, reactors,
 and storage facilities. In order to drive the simulation, an
-electricity demand function is provided to the simulation which
+electricity demand function is provided to the simulation, which
 determines the supply requirement for reactors at a given time
 step. Once the simulation is complete, an analysis of material flows
 and facility deployment as a function of time is provided. Of specific
@@ -158,9 +156,8 @@ fuel production and the corresponding storage requirements.
 
 %%%%%%%%%%
 \subsubsection{Scenario Construction}
-A number of modules have been developed to perform this
-analysis. Reactor deployment decisions are driven by the GrowthRegion
-class. An electricity demand is defined for that region, either as a
+Reactor deployment decisions are driven by the region in which the 
+reactors exist. An electricity demand is defined for that region, either as a
 linear or exponential function. The region is also provided with a set
 of available facilities (reactors) that can meet this demand. At any time step
 in which there exists a demand gap, i.e. there exists more demand than
@@ -253,10 +250,11 @@ during the final core offload(s)~\cite{oliver2009}.
 \subsubsection{Conclusions}
 The \textsc{Cyclus} core has been shown to provide expected behavior of discrete 
 material flows for simple reactor cases. \textsc{Cyclus} additionally has the 
-capability to not only model a variety of growth scenarios with varying fuel storage 
+capability not only to model a variety of growth scenarios with varying fuel storage 
 strategies, but also to emulate the reactor deployment algorithm of VISION, i.e. 
 explicitly declaring reactor types to be built given a defined distribution, by adding 
-an additional constraint in the decision making problem solved by the GrowthRegion.
+an additional constraint in the decision making problem solved by the region in
+which the reactors exist.
 
 Further work is currently underway to refine building strategies for
 non-reactor facilities; however, the next major project goal of the
