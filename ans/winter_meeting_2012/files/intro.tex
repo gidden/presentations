@@ -1,8 +1,5 @@
-% Overview : .tex
-% put a repository model into cyclus
-% that is capable of distinguishing between disposal choices
-% and fuel cycle choices
-% but is still speedy. 
+% Overview : intro.tex
+% Explain why this talk is being given.
 
 \begin{frame}[ctb!]
   \frametitle{Introduction : Purpose}
@@ -24,21 +21,10 @@
 \end{frame}
 
 \begin{frame}[ctb!]
-  \frametitle{Introduction : Cyclus}
-  Cyclus is designed to provide a common fuel cycle simulator 
-  framework.
-
-  In this vein, we wish to show similar capabilities to other 
-  simulators, e.g. VISION.
-
-  This discussion will provide 
-\end{frame}
-
-\begin{frame}[ctb!]
   \frametitle{Introduction : VISION}
-  VISION has surfaced as the industry standard simulator. It is well
-  represented in the literature and can model most aspects of the
-  fuel cycle. \cite{yacout_vision_2006}
+  VISION is one such simulator developed at INL and used by the DOE. 
+  It is well represented in the literature and can model most aspects 
+  of the fuel cycle. \cite{yacout_vision_2006}
   \begin{itemize}
     \item continuous material flows
     \item fleet-based facility deployment
@@ -46,10 +32,23 @@
     \item input/output via Excel
     \item simulation engine via Powersim
   \end{itemize}
-  However, Powersim has its limitations...
-  \begin{itemize}
-    \item variables as a function of software level... did you get the academic or professional version?
-    \item it's (relatively) expensive
-    \item it's third party software
-  \end{itemize}
+\end{frame}
+
+\begin{frame}[ctb!]
+  \frametitle{Introduction : Cyclus}
+  There have been many implementations of fuel cycle simulators. 
+  Cyclus is designed to provide a common fuel cycle simulator 
+  framework, i.e. a common simulator language.
+
+  \vspace{0.2cm}
+
+  In this vein, we wish to show similar capabilities to other 
+  simulators, e.g. VISION.
+
+  \vspace{0.2cm}
+
+  \pause
+  This discussion will showcase capability additions to the Cyclus
+  simulation engine and the modules that use them. We then provide a
+  benchmark example of VISION and Cyclus output.
 \end{frame}
