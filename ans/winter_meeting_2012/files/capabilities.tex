@@ -1,0 +1,77 @@
+% Overview : capabilities.tex
+% Explain what capability additions have resulted from benchmarking
+
+\begin{frame}
+  \frametitle{Capability : Demand Functions}
+  Many simulators require the ability to define demand functions. 
+  Multiple approaches exist, including specifying demand at each time
+  step. 
+
+  \vspace{0.2cm}
+
+  In order to provide a universal tool for simulation developers, a 
+  symbolic function toolbox was developed. We currently support:
+  \begin{itemize}
+    \item Linear Functions
+    \item Exponential Functions
+    \item Piecewise Functions (Combinations of those above)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[ctb!]
+  \frametitle{Capability : Demand Functions}
+  \begin{figure}[htbp!]
+    \begin{center}
+      \includegraphics[height=5cm]{piecewise.eps}
+    \caption{A piecewise function example using the Cyclus Symbolic 
+      Function Toolbox}
+    \label{fig:piecewisefunction}
+    \end{center}
+  \end{figure}
+\end{frame}
+
+% \begin{frame}[ctb!]
+%   \frametitle{Encapsulation}
+%   \begin{figure}[htbp!]
+%     \begin{center}
+%       \includegraphics[height=5cm]{facility.eps}
+%     \end{center}
+%     \caption{ Regions, Institutions, Facilities, and Markets are all
+%     black boxes.} 
+%     \label{fig:sinkfacility}
+%   \end{figure}
+% \end{frame}
+
+% \begin{frame}[ctb!]
+%   \frametitle{Facilities Are Black Boxes}
+%   \begin{figure}[htbp!]
+%     \begin{center}
+%       \includegraphics[height=5cm]{facility.eps}
+%     \end{center}
+%     \caption{ Each facility in the simulation makes requests and offers 
+%     to fill its stocks and empty its inventory respectively.  }
+%     \label{fig:facility}
+%   \end{figure}
+% \end{frame}
+
+% \begin{frame}[ctb!]
+%   \frametitle{Facilities Are Black Boxes}
+%   \begin{figure}[htbp!]
+%     \begin{center}
+%       \includegraphics[height=5cm]{sourcefacility.eps}
+%     \end{center}
+%     \caption{ A facility might only make offers.} 
+%     \label{fig:sourcefacility}
+%   \end{figure}
+% \end{frame}
+
+% \begin{frame}[ctb!]
+%   \frametitle{Facilities Are Black Boxes}
+%   \begin{figure}[htbp!]
+%     \begin{center}
+%       \includegraphics[height=5cm]{sinkfacility.eps}
+%     \end{center}
+%     \caption{ A facility might only make requests.} 
+%     \label{fig:sinkfacility}
+%   \end{figure}
+% \end{frame}
