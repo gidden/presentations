@@ -2,7 +2,7 @@
 % Explain what capability additions have resulted from benchmarking
 
 \begin{frame}
-  \frametitle{Capability : Demand Functions}
+  \frametitle{Core Capability : Demand Functions}
   Many simulators require the ability to define demand functions. 
   Multiple approaches exist, including specifying demand at each time
   step. 
@@ -19,7 +19,7 @@
 \end{frame}
 
 \begin{frame}[ctb!]
-  \frametitle{Capability : Demand Functions}
+  \frametitle{Core Capability : Demand Functions}
   \begin{figure}[htbp!]
     \begin{center}
       \includegraphics[height=5cm]{piecewise.eps}
@@ -30,48 +30,73 @@
   \end{figure}
 \end{frame}
 
-% \begin{frame}[ctb!]
-%   \frametitle{Encapsulation}
-%   \begin{figure}[htbp!]
-%     \begin{center}
-%       \includegraphics[height=5cm]{facility.eps}
-%     \end{center}
-%     \caption{ Regions, Institutions, Facilities, and Markets are all
-%     black boxes.} 
-%     \label{fig:sinkfacility}
-%   \end{figure}
-% \end{frame}
+\begin{frame}
+  \frametitle{Core Capability : Facility Deployment}
+  Cyclus now supports facility deployment in two modes, explicit 
+  deployment and deployment in response to a defined demand.
 
-% \begin{frame}[ctb!]
-%   \frametitle{Facilities Are Black Boxes}
-%   \begin{figure}[htbp!]
-%     \begin{center}
-%       \includegraphics[height=5cm]{facility.eps}
-%     \end{center}
-%     \caption{ Each facility in the simulation makes requests and offers 
-%     to fill its stocks and empty its inventory respectively.  }
-%     \label{fig:facility}
-%   \end{figure}
-% \end{frame}
+  \vspace{1cm}
 
-% \begin{frame}[ctb!]
-%   \frametitle{Facilities Are Black Boxes}
-%   \begin{figure}[htbp!]
-%     \begin{center}
-%       \includegraphics[height=5cm]{sourcefacility.eps}
-%     \end{center}
-%     \caption{ A facility might only make offers.} 
-%     \label{fig:sourcefacility}
-%   \end{figure}
-% \end{frame}
+  Explicit deployment allows for user-defined deployment whereas 
+  demand deployment allows for the process to be automated.
 
-% \begin{frame}[ctb!]
-%   \frametitle{Facilities Are Black Boxes}
-%   \begin{figure}[htbp!]
-%     \begin{center}
-%       \includegraphics[height=5cm]{sinkfacility.eps}
-%     \end{center}
-%     \caption{ A facility might only make requests.} 
-%     \label{fig:sinkfacility}
-%   \end{figure}
-% \end{frame}
+  \vspace{1cm}
+
+  When more than one facility type meets a specific type of demand,
+  an integer program (IP) is solved to determine the number and type of
+  facilities to build.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Core Capability : Facility Deployment}
+  In order to differentiate amongst facility types that meet a demand,
+  a capcity and cost must be defined. At that point, the following IP
+  is solved:
+
+  %%% 
+  \begin{subequations} \label{eqs:optBuild}
+    \begin{equation} \label{eq:optBuildObj}
+      \begin{aligned}
+        & \min
+        & & \sum_{f \in F}n_f*c_f
+      \end{aligned}
+    \end{equation}
+    \begin{equation} \label{eq:optBuildConst}
+      \begin{aligned}
+        & \text{s.t.}
+        & & \sum_{f \in F}n_f*\phi_f \ge \Phi
+      \end{aligned}
+    \end{equation}
+    \begin{equation} \label{eq:optBuildBounds}
+      \begin{aligned}
+        & n_f \in [0,\infty) & \forall \:\: f \in F &
+      \end{aligned}
+    \end{equation}
+    \begin{equation} \label{eq:optBuildInt}
+      \begin{aligned}
+        & n_f \:\: integer \:\: & \forall \:\: f \in F &
+      \end{aligned}
+    \end{equation}
+
+    \vspace{0.2cm}
+  
+    where $\Phi$ is the unmet demand, $F$ is the set of facilities capable of 
+    meeting the demand, and, for each facility in $F$, $c_f$ is the cost of building, 
+    and $\phi_f$ is the nameplate capacity.  Finally, $n_f$ is the optimized number of
+    facilities to build of type $f$.
+  \end{subequations}
+  %%% 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Core Capability : Enrichment and Resource Consumption}
+  An Enrichment Toolbox has been added that provides methods to 
+  calculate enrichment-related parameters. Calculable parameters 
+  include:
+  \begin{itemize}
+    \item Uranium assay of a material
+    \item Product quantity required for enrichment
+    \item Tails quantity resulting from enrichment
+    \item SWU required for enrichment
+  \end{itemize}
+\end{frame}
