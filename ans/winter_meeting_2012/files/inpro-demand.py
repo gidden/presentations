@@ -28,9 +28,9 @@ for entry in time:
     for j in range(len(demand_points)):
         demand[j].append(demand_points[j][i] + (entry - years[i]) * slopes[j][i])
 
-plt.plot(time,demand[0],label='Moderate Demand')
 plt.plot(time,demand[1],label='High Demand')
-plt.axis([min(time),max(time),min(demand[0]),max(demand[1])])
+plt.plot(time,demand[0],label='Moderate Demand')
+plt.axis([min(time),max(time),0,max(demand[1])])
 plt.legend(loc=2)
 plt.title('Nuclear Energy Demand - INPRO BAU')
 plt.xlabel('Year')

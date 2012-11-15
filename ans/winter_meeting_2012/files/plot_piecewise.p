@@ -10,9 +10,9 @@ set title "Symbolic Representation of a Piecewise Function"
 set xlabel "Argument"
 set ylabel "Function Value"
 plot "piecewise.dat" using 1:2 title 'No Demand' with lines lw 2, \
-     "piecewise.dat" using 3:4 title 'Linear Demand' with lines lw 2, \
-     "piecewise.dat" using 5:6 title 'Exponential Demand' with lines lw 2
+     "piecewise.dat" using 3:4 title 'Linear Demand Growth' with lines lw 2, \
+     "piecewise.dat" using 5:6 title 'Exponential Demand Growth' with lines lw 2
 #
-set term post eps solid
+set term post eps solid color
 set output 'piecewise.eps'
 replot
