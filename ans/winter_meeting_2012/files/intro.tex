@@ -36,19 +36,37 @@
 
 \begin{frame}[ctb!]
   \frametitle{Introduction : Cyclus}
-  There have been many implementations of fuel cycle simulators. 
-  Cyclus is designed to provide a common fuel cycle simulator 
-  framework, i.e. a common simulator language.
+  Cyclus is a fuel cycle simulator implemented as an agent-based model,
+  i.e., entities are defined separately and then interact. Output 
+  metrics are simply an aggregation of those interactions.
 
-  \vspace{0.2cm}
+  \vspace{0.4cm}
 
-  In this vein, we wish to show similar capabilities to other 
-  simulators, e.g. VISION.
+  This approach has been chosen because it allows for encapsulation of
+  agent behavior. The simulation engine in conjunction with this 
+  encapsulation provides a common fuel cycle simulator framework, i.e.
+  a common simulator language.
 
-  \vspace{0.2cm}
+  \vspace{0.4cm}
 
   \pause
   This discussion will showcase capability additions to the Cyclus
   simulation engine and the modules that use them. We then provide a
-  benchmark example of VISION and Cyclus output.
+  use case example of both Cyclus and Vision via the INPRO 
+  Business-as-Usual (BAU) once-through benchmark.
+\end{frame}
+
+\begin{frame}[ctb!]
+  \frametitle{Introduction : Benchmark}
+  The INPRO BAU benchmark specifies that two types of reactors will
+  be built based upon demand for energy.
+  \begin{figure}[htbp!]
+    \begin{center}
+      \includegraphics[height=4cm]{inpro-demand.eps}
+    \caption{The energy demand specification for the INRPO BAU scenarios.}
+    \label{fig:inpro-demand}
+    \end{center}  
+  \end{figure}
+  Reactor deployment is split between LWRs (94\% of energy demand) and
+  HWRs (6\% of energy demand). Reactors have a 40 year operation lifetime.
 \end{frame}
