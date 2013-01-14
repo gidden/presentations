@@ -1,0 +1,94 @@
+% Thanks to Seth Johnson (sethrj@umich.edu) for publishing his ans template
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{anstrans}
+\bibliographystyle{ans}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{An Agent-Based Framework for Fuel Cycle Simulation with Recycling}
+\author{Matthew J.~Gidden, Paul P.H.~Wilson, Kathryn D.~Huff, Robert W.~Carlsen}
+\institute{Department of Nuclear Engineering \& Engineering Physics, University of Wisconsin - Madison, Madison, WI, 53703}
+\email{gidden@wisc.edu}
+\date{2013/01/14}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{times} % fancier looking type
+\usepackage{graphicx}
+\usepackage{microtype} % if using PDF
+\usepackage{amsmath} % for optimization equations
+\usepackage{booktabs}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+There is strong motivation for pursuing a decision-based, 
+discrete-time, discrete-object fuel cycle simulation infrastructure. 
+The fuel cycle simulation community has long been a collection of 
+individual actors designing simulation tools for specific 
+requirements, the results of which are then difficult or impossible 
+to compare/benchmark. Additional difficulties arise when proprietary 
+software is used as the foundation of the model framework due to 
+licensing restrictions and high costs. Accordingly, we have been 
+working through a number of design iterations to arrive at a generic 
+framework that supports the nuclear systems simulation community in a 
+broad sense, i.e. a ``generic-enough'' tool to allow for system design, 
+connection, and analysis as well as comparison with other similarly 
+designed systems.
+
+When viewing the nuclear fuel cycle through a facility-connections 
+lens, it becomes apparent that the life cycle of material constitutes 
+a supply chain. Different supply chain structures are currently 
+present in the real fuel cycle, e.g. the rigid top-down structure in France 
+as opposed to the more global, multi-tiered supply chains resulting 
+from U.S. Section 123 Agreements. In order to model the variety of
+possible structures, one must allow for independent decision making. 
+Due to the aggregation of requirements, a natural fit is the 
+burgeoning field of agent-based, supply-chain network simulation.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Simulation Framework}
+There are a number of agent-based supply chain frameworks and 
+implementations available in the literature with varying levels of 
+accessibility due to proprietary considerations.\cite{swaminathan_modeling_1998}\cite{julka_agent-based_2002}\cite{van_der_zee_modeling_2005}\cite{chatfield_multi-formalism_2007}
+However, the nuclear fuel cycle presents a few unique characteristics not explicitly 
+treated in the literature. Perhaps the most difficult consideration 
+we have identified is the need to specify target fuel recipes and
+match suppliers and consumers based on the requested recipe, i.e. 
+there are both quantity and quality constraints placed on a requested 
+commodity. An additional difficulty arises with the enforcement of 
+regional-boundary constraints (e.g. prohibiting HEU trade between 
+regions) and inter-enterprise preferences. We propose to tackle both 
+issues via a comprehensive supply/demand matching mechanism.
+
+We propose using a supply/demand matching algorithm that is comprised 
+of three main procedures: request-for-bids, preference assignment, 
+and resolution. The request-for-bids step signals the producers of 
+various commodities of the demand and material specification for 
+those commodities. The preference assignment step allows the customers
+to analyze each bid in order to assign a preference. The managers of 
+these customers (be they at the region or enterprise level) are 
+allowed to affect the decision making process at this point in order 
+to inform the preferences of the customers covered by their policy 
+space. The resolution step takes the as input the bids and 
+preferences and outputs the material flows for the given time step.\cite{cyclus2012}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusions}
+Presented herein are a number of simple simulations in order to 
+demonstrate the capability of an implementation of the framework. We 
+discuss various modeling tradeoffs encountered while constructing 
+once-through and recycle simulation cases. We finish with a 
+discussion of the future simulation landscape and expansion of the 
+use of the framework.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Acknowledgments}
+This research is being performed using funding received from the DOE
+Office of Nuclear Energy's Nuclear Energy University Programs.  The
+author thanks the NEUP for its generous support.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliography{bibliography}
+\end{document}
