@@ -1,3 +1,7 @@
+This repo is deprecated. All subdirectories have been moved into
+their separate repos.
+
+
 ________________________
 Presentations Repository
 ________________________
